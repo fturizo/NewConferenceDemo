@@ -1,0 +1,14 @@
+= Speaker Service
+
+Manages speaker data, (personal information, etc.)
+
+Designed as a simple Spring Boot 3.x application to be deployed on Docker containers, Kubernetes, cloud platforms or any portable target.
+
+NOTE: Requires *Java 21* as a minimum.
+
+== Integrations
+
+This application requires the following dependencies to be available:
+
+* MongoDB Database: Used to persist speaker information.
+* SMTP Server/Email Service: Used to notify speakers via email messages.

@@ -1,0 +1,16 @@
+= Conference Demo
+
+This is a small demo set of applications used to showcase Enterprise Java features via Spring Boot and the Spring Framework along with modern integration technologies like Testcontainers, Keycloak and others.
+
+link:https://github.com/fturizo/ConferenceDemo[This project] inspired the domain model and real-world requirements.
+
+WARNING: This is a work in progress.
+
+== Modules
+
+The following service modules are defined:
+
+. *Speaker*: A small service application that handles speaker data.
+. *Session*: A small service application that handles session data and provides a default configurable list of venues.
+. *Vote*: Handles session rating and the creation of attendees.
+. *Dashboard*: A UI dashboard application that integrates all services.
