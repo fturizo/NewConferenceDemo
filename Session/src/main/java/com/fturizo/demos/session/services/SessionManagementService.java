@@ -1,6 +1,7 @@
 package com.fturizo.demos.session.services;
 
 import com.fturizo.demos.session.entities.Session;
+import com.fturizo.demos.session.integration.SpeakerServiceClient;
 import com.fturizo.demos.session.repositories.SessionRepository;
 import io.github.resilience4j.retry.annotation.Retry;
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
@@ -20,12 +21,14 @@ public class SessionManagementService {
 
     private final Logger logger = LoggerFactory.getLogger(SessionManagementService.class);
     private final SessionRepository sessionRepository;
+    private final SpeakerServiceClient speakerServiceClient;
 
     private final Map<Long, Session> cachedSessions = new HashMap<>();
     private final List<Session> tempSessions = new ArrayList<>();
 
-    public SessionManagementService(SessionRepository sessionRepository) {
+    public SessionManagementService(SessionRepository sessionRepository, SpeakerServiceClient speakerServiceClient) {
         this.sessionRepository = sessionRepository;
+        this.speakerServiceClient = speakerServiceClient;
         this.loadCachedSessions();
     }
 
@@ -37,17 +40,14 @@ public class SessionManagementService {
     @Transactional
     @Retry(name = "SessionManagementService", fallbackMethod = "createSessionOnDBFailure")
     public Session createSession(Session session){
-        /*
+
         var response = speakerServiceClient.checkSpeakers(session.getSpeakers());
         if(response.getStatusCode().is2xxSuccessful()){
-            entityManager.persist(session);
-            return session;
+            sessionRepository.save(session);
+            cachedSessions.put(session.getId(), session);
         }else{
             throw new IllegalArgumentException("Invalid speakers");
         }
-        */
-        sessionRepository.save(session);
-        cachedSessions.put(session.getId(), session);
         return session;
     }
 

@@ -1,0 +1,26 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SessionIntegrationTests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+    <module name="Session" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.fturizo.demos.session.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+      <option name="credential" />
+      <option name="region" />
+      <option name="useCurrentConnection" value="false" />
+    </extension>
+    <option name="PACKAGE_NAME" value="com.fturizo.demos.session" />
+    <option name="MAIN_CLASS_NAME" value="com.fturizo.demos.session.SessionIntegrationTests" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="class" />
+    <envs>
+      <env name="JDK_JAVA_OPTIONS" value="--enable-native-access=ALL-UNNAMED" />
+    </envs>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

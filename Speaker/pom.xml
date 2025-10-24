@@ -63,6 +63,15 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <name>speaker</name>
+                        <buildpacks>
+                            <buildpack>paketobuildpacks/azul-zulu</buildpack>
+                            <buildpack>paketobuildpacks/java</buildpack>
+                        </buildpacks>
+                    </image>
+                </configuration>
             </plugin>
         </plugins>
     </build>
