@@ -14,7 +14,7 @@
     <name>Speaker</name>
     <description>Speaker Service</description>
     <properties>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
