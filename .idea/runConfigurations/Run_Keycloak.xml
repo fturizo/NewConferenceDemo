@@ -1,0 +1,42 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run Keycloak" type="docker-deploy" factoryName="docker-image" server-name="Docker">
+    <deployment type="docker-image">
+      <settings>
+        <option name="imageTag" value="quay.io/keycloak/keycloak:26.4" />
+        <option name="command" value="start-dev --import-realm" />
+        <option name="containerName" value="keycloak" />
+        <option name="envVars">
+          <list>
+            <DockerEnvVarImpl>
+              <option name="name" value="KEYCLOAK_ADMIN" />
+              <option name="value" value="admin" />
+            </DockerEnvVarImpl>
+            <DockerEnvVarImpl>
+              <option name="name" value="KEYCLOAK_ADMIN_PASSWORD" />
+              <option name="value" value="admin" />
+            </DockerEnvVarImpl>
+          </list>
+        </option>
+        <option name="portBindings">
+          <list>
+            <DockerPortBindingImpl>
+              <option name="containerPort" value="8080" />
+              <option name="hostPort" value="8888" />
+            </DockerPortBindingImpl>
+          </list>
+        </option>
+        <option name="commandLineOptions" value="--rm" />
+        <option name="volumeBindings">
+          <list>
+            <DockerVolumeBindingImpl>
+              <option name="containerPath" value="/opt/keycloak/data/import" />
+              <option name="hostPath" value="C:\Users\fabio\Documents\Projects\ConferenceDemo\.data" />
+              <option name="readOnly" value="true" />
+            </DockerVolumeBindingImpl>
+          </list>
+        </option>
+      </settings>
+    </deployment>
+    <method v="2" />
+  </configuration>
+</component>
